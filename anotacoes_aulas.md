@@ -1,7 +1,7 @@
 # Aulas
 
-## Aula 5
-- 🧭 Comandos do Git (Offline)
+## Dia 5
+- 🧭 Comandos do Git (Offline - local)
     - **`git log`** — Exibe todos os commits e alterações realizadas no repositório.  
     - **`git log --stat`** — Mostra os commits junto com um resumo das alterações (arquivos modificados e linhas alteradas).  
     - **`git status`** — Verifica os arquivos que foram modificados e o que está diferente em relação ao último commit.  
@@ -15,12 +15,24 @@
 
 ---
 
-## Aula 6
+## Dia 6
+- 🧭 Comandos do Git (Online - origin)
+    - **`git push`** — empurrar alterações locais para o origin. 
+    - **`git push --force`** — empurrar de forma forçada alterações locais para o origin.
+    - **`git pull`** — trazer para o local os arquivos do repositorio no git. 
 
-## Aula 7
+---
 
-## Aula 8
+## Dia 7
 
-## Aula 9
+---
 
-## Aula 10
+## Dia 8
+
+---
+
+## Dia 9
+
+---
+
+## Dia 10
