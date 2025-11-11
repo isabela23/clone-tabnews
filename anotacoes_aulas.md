@@ -24,6 +24,16 @@
 ---
 
 ## Dia 7
+- Resumo do dia:
+    1. Conectar a Vercel
+    2. Importar repositório
+    3. Primeira versão no ar
+    4. URLs permanentes e únicas
+- Client e Server:
+    - Não são papeis fixos e dependem do que exatamente estes componentes estão fazendo;
+- Hospedagem e Deploy:
+    - Na Vercel (https://vercel.com/home)
+    - Automatizado - A cada novo 'push' é atualizado automatica o site
 
 ---
 
