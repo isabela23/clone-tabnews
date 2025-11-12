@@ -33,11 +33,12 @@
     - Não são papeis fixos e dependem do que exatamente estes componentes estão fazendo;
 - Hospedagem e Deploy:
     - Na Vercel (https://vercel.com/home)
-    - Automatizado - A cada novo 'push' é atualizado automatica o site
+    - Automatizado - A cada novo **`git push`** é atualizado automaticamente o site
 
 ---
 
 ## Dia 8
+- Programação Orgânica x Impressora 3D
 
 ---
 
