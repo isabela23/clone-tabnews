@@ -43,7 +43,8 @@
 ---
 
 ## Dia 9
-
+- Criação da Milestone 'Em construção' no git e criação da issues.
+    - Essa é uma forma de dividir o projeto em pequenas tarefas.
 ---
 
 ## Dia 10
