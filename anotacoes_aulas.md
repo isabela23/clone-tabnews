@@ -78,4 +78,35 @@
     ```json
     "lint:fix": "prettier --write ."
     ```
-  - Instalar o Prettier no vsCode pra precisar ficar rodando o omando na mão.
+
+  - Instalar o Prettier no vscode pra precisar ficar rodando o comando na mão.
+
+---
+
+## Dia 11
+
+- **DNS:** Sistema de Nomes de Domínio
+  - Os domínios são apenas os “apelidos” dos sites.
+  - Os endereços reais são os IPs.
+  - O DNS nada mais é que um **DE → PARA** (um mapeamento) dos domínios para seus respectivos IPs.
+    - Ex.: `www.test.com` → `000.000.0.00`
+    - Como funciona por trás: é como ligar para um atendente e perguntar qual é o IP do site `www.test.com`. O atendente responde: `000.000.0.00`. Com essa informação, você faz a ligação diretamente para esse IP.
+    - Ou seja: o servidor DNS **não participa da sua conexão com o site**; ele atua **antes**, apenas para dizer qual IP você deve usar.
+
+---
+
+## Dia 12
+
+---
+
+## Dia 13
+
+---
+
+## Dia 14
+
+---
+
+## Dia 15
+
+---
