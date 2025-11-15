@@ -1,5 +1,11 @@
 # Aulas
 
+## Dias 1 a 4
+
+- Perdi as anotações depois de um **`git push --force`** :(
+
+---
+
 ## Dia 5
 
 - 🧭 Comandos do Git (Offline - local)
@@ -97,13 +103,26 @@
 
 ## Dia 12
 
+- Registrar o próprio domínio:
+  - Nessa aula o professor dá um dominio para gente validade de um ano!
+  - Cadastro do domínio foi pelo site `https://registro.br/`
+  - Eu escolhei o domínio **datatennis.com.br**
+- Configurar o Servidor de DNS
+  - Configração deve ser feito na conta criada na Vercel: - Entrar na tela 'Domains' e clicar em Add
+    **OBS:** Esperando o pagamento para poder continuar aqui!
+
 ---
 
 ## Dia 13
 
+- Página em "Em construção" e fechamento da Milestone 0
+- Aula sobre o status dos serviços, ex: página de status da aws: `https://health.aws.amazon.com/health/status`
+
 ---
 
 ## Dia 14
+
+- Criação da Milestone 1: Fundação
 
 ---
 
