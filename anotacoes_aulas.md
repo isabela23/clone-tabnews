@@ -109,7 +109,7 @@
   - Eu escolhei o domínio **datatennis.com.br**
 - Configurar o Servidor de DNS
   - Configração deve ser feito na conta criada na Vercel: - Entrar na tela 'Domains' e clicar em Add
-    **OBS:** Esperando o pagamento para poder continuar aqui!
+    **OBS:Esperando o pagamento para poder continuar aqui!**
 
 ---
 
@@ -122,7 +122,35 @@
 
 ## Dia 14
 
-- Criação da Milestone 1: Fundação
+- **PoC** (Proof of Concept — Prova de Conceito)
+  - Responde à pergunta: **Qual o menor custo que posso ter para descobrir qual caminho seguir?**
+  - Responde à pergunta: **Quais evidências afirmam que determinado conceito irá funcionar?**
+
+- **MVP** (Minimum Viable Product — Produto Mínimo Viável)
+  - Fazer o mínimo necessário, mas com excelente qualidade.
+
+- Criação da **Milestone 1**: Fundação
+
+- **Overengineering**
+  - Complexidade desnecessária que dificulta o progresso do projeto.
+
+- **Arquitetura de Software**
+  - Prezar por simplicidade
+- **Organização de Pastas e Arquivos**
+  📦root/
+  ├──📂pages/
+  │ └──📄index.js
+  ├──📂models/
+  │ ├──📄users.js
+  │ ├──📄content.js
+  │ └──📄password.js
+  ├──📂infra/
+  │ ├──📄database.js
+  │ ├──📂migrations/
+  │ └──📂provisioning/
+  │ ├──📂staging/
+  │ └──📂production/
+  └──📂tests/
 
 ---
 
