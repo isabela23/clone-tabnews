@@ -166,7 +166,19 @@
     - Para rodar os testes no terminal:
       - `npm run test`
       - `npm run test:watch`
+
   - Criar um teste simples (“teste de teste”)
+    - Criada a pasta `test`
+    - Função `expect` – Valor gerado dinamicamente
+    - Função `toBe` – Valor esperado (hardcoded)
+    - O teste verifica se o **valor esperado** é igual ao **valor gerado**; quando isso não acontece, o teste falha.
+
   - Criar um teste real (“teste de verdade”)
+    - Criação da função calculadora na pasta `models` (onde devem ficar as funções do projeto)
+    - Criado um teste para verificar se a função `somar` retorna um valor válido/esperado.
+    - **TDD (Test Driven Development)**
+      - Desenvolvimento orientado por testes: escrever primeiro o teste e depois a função em si.
+
+- **Os testes dessa aula não subiram para o repositório!**
 
 ---
