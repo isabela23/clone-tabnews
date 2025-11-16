@@ -1,10 +1,12 @@
 function Home() {
   return (
-    <h1>
-      {" "}
-      Oie!! Como vai o seu dia? Espero que não esteja pior que o de uma
-      diarista! 😄 😄 S2 S2 S2{" "}
-    </h1>
+    <div>
+      <h1> Em construção!!! </h1>
+      <p>
+        Aprendendo com o curso dev e, quem sabe, no futuro isso vire um projeto
+        pessoal que tenho em mente...
+      </p>
+    </div>
   );
 }
 export default Home;

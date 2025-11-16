@@ -156,4 +156,17 @@
 
 ## Dia 15
 
+- **Testes Automatizados**
+  - Instalar o Test Runner (usaremos o **Jest** neste curso):
+    - No terminal: `npm install --save-dev jest@29.6.2`
+    - No arquivo **package.json**, adicionar em **scripts**:
+      - `"test": "jest"`
+      - `"test:watch": "jest --watch"`  
+        _(Este comando fica rodando o tempo todo, monitorando suas alterações.)_
+    - Para rodar os testes no terminal:
+      - `npm run test`
+      - `npm run test:watch`
+  - Criar um teste simples (“teste de teste”)
+  - Criar um teste real (“teste de verdade”)
+
 ---
