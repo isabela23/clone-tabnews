@@ -182,3 +182,43 @@
 - **Os testes dessa aula não subiram para o repositório!**
 
 ---
+
+## Dia 16
+
+- **Testes automatizados**
+  - **Testes unitários**
+    - O teste funciona por conta própria, sem depender de outras dependências (como um banco de dados, por exemplo).
+    - Criação da pasta `tests/unit`.
+  - **Testes de integração (service)**
+    - Testes que envolvem várias camadas da infraestrutura.
+    - Criação da pasta `tests/integration`.
+  - **Testes E2E (UI)**
+    - Testes end-to-end.
+- Criar endpoint `/status`.
+- **Endpoint** → endereço final de um serviço ou recurso.
+- **API (Application Programming Interface)**
+- Criada a pasta `pages/api`.
+- Criado o arquivo `pages/api/status.js`.
+- Apenas criar o arquivo acima já gera automaticamente um endpoint no site em `api/status`.
+- Teste via terminal:
+  ```bash
+  curl http://localhost:3000/api/status -v
+  ```
+- **Versionamento da API**
+  - Basta criar uma nova pasta dentro da pasta `api` chamada `v1`.
+
+## Dia 17
+
+---
+
+## Dia 18
+
+---
+
+## Dia 19
+
+---
+
+## Dia 20
+
+---
