@@ -207,7 +207,40 @@
 - **Versionamento da API**
   - Basta criar uma nova pasta dentro da pasta `api` chamada `v1`.
 
+---
+
 ## Dia 17
+
+- **Banco de dados — como escolher?**
+  - **DBMS (Database Management System / SGBD)**
+    - Ex: MySQL, Postgres, SQL Server, MongoDB...
+    - No projeto foi escolhido o **Postgres**
+  - **Query — Consulta**
+    - ORM (Object-Relational Mapping)
+    - No projeto, as queries serão feitas _na mão_
+    - Uso do módulo `pg`
+  - **Migrations — Migrações**
+    - Arquivos que instruem modificações na estrutura do banco de dados
+    - No projeto será usado `node-pg-migrate`
+
+- **Docker**
+  - Permite isolar processos em um mesmo host
+  - `Docker Compose` serve para monitorar e orquestrar diferentes containers no Docker
+  - No Codespaces o Docker já vem instalado
+  - No Docker Hub (`https://hub.docker.com`) ficam as imagens disponibilizadas, como a do Postgres
+  - Baixar uma versão `alpine` do Postgres, pois essa versão ocupa menos espaço
+  - Criar o arquivo `infra/compose.yaml` na raiz do projeto
+    - No arquivo devem ser passados os serviços que serão instalados no container
+    - Depois de configurar o arquivo `compose.yaml`, rodar no terminal:
+      - `docker compose -f infra/compose.yaml up` - pra subir
+      - `docker compose -f infra/compose.yaml up --detach` para poder usar o terminal normalmente
+      - `docker compose down` - pra destruir
+  - O comando `docker ps` serve para listar os containers que estão rodando
+  - O comando `docker logs NOME_DO_PROCESSO` verifica o log do processo em questão
+  - O `psql` é o cliente de linha de comando do Postgres
+  - Instalar o client do Postgres → `sudo apt install postgresql-client`
+  - Passar as configurações para acesso ao Postgres →  
+    `psql --host=localhost --username=postgres --port=5432`
 
 ---
 
