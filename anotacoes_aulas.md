@@ -246,6 +246,13 @@
 
 ## Dia 18
 
+- Criar módulo `database.js`
+  - É uma abstração da nossa infraestrutura e que vai ser responsável por abrir conexão com o Banco de Dados e enviar queries pra ele;
+  - Necessário instalar o `pg` na versão 8.11.3
+    - Terminal -> `npm install pg@8.11.3`
+  - Criação do arquivo `infra/database.js`
+  - Criação do arquivo `.env` para passar as variáveis de ambiente
+
 ---
 
 ## Dia 19
