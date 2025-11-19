@@ -258,6 +258,8 @@
 ## Dia 19
 
 - O professor instrui criar o arquivo `.env.development` para as variaveis de ambiente locais
+- Aula sobre caminho relativo e caminho absoluto dos diretórios:
+  - Criação do arquivo `jsconfig.json`com esse arquivo na raiz do projeto o node consegue entender onde é a raiz.
 
 ---
 
