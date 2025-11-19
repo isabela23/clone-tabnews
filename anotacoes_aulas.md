@@ -257,9 +257,15 @@
 
 ## Dia 19
 
-- O professor instrui criar o arquivo `.env.development` para as variaveis de ambiente locais
+- O professor instruiu a criar o arquivo `.env.development` para as variáveis de ambiente locais.
 - Aula sobre caminho relativo e caminho absoluto dos diretórios:
-  - Criação do arquivo `jsconfig.json`com esse arquivo na raiz do projeto o node consegue entender onde é a raiz.
+  - Criação do arquivo `jsconfig.json`, que, estando na raiz do projeto, permite ao Node entender onde é a raiz.
+- Criação dos scripts dentro do `package.json` para subir o Docker:
+  - `"services:up": "docker compose -f infra/compose.yaml up --detach"`
+  - `"services:stop": "docker compose -f infra/compose.yaml stop"`
+  - `"services:down": "docker compose -f infra/compose.yaml down"`
+- Juntar o `"services:up"` com o `"dev"`:
+  - `"dev": "npm run services:up && next dev"`
 
 ---
 
