@@ -257,6 +257,8 @@
 
 ## Dia 19
 
+- O professor instrui criar o arquivo `.env.development` para as variaveis de ambiente locais
+
 ---
 
 ## Dia 20
