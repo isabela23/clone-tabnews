@@ -271,4 +271,21 @@
 
 ## Dia 20
 
+- Esse dia tem como objetivo configurar a pagina do endpoint `api/v1/status` (página da saúde do sistema)
+  - Configurações dos arquivos `pages/api/v1/status/index.js` e do arquivo de test dessa página
+  - Criação dos campos versão do postgres, máximo de conexão no banco e conexões usadas na tela do `status`
+  - Explicação sobre vazamendo de dados com SQL Injection e como evitar isso passando os campos `text`e `value` nas queries com `where`
+
+---
+
+## Dia 21
+
+---
+
+## Dia 22
+
+---
+
+## Dia 23
+
 ---
