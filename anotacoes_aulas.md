@@ -271,14 +271,23 @@
 
 ## Dia 20
 
-- Esse dia tem como objetivo configurar a pagina do endpoint `api/v1/status` (página da saúde do sistema)
-  - Configurações dos arquivos `pages/api/v1/status/index.js` e do arquivo de test dessa página
-  - Criação dos campos versão do postgres, máximo de conexão no banco e conexões usadas na tela do `status`
-  - Explicação sobre vazamendo de dados com SQL Injection e como evitar isso passando os campos `text`e `value` nas queries com `where`
+- O objetivo deste dia é configurar a página do endpoint `api/v1/status` (página de saúde do sistema).
+  - Configuração dos arquivos `pages/api/v1/status/index.js` e do arquivo de testes dessa página.
+  - Criação dos campos: versão do Postgres, máximo de conexões do banco e número de conexões utilizadas na tela de `status`.
+  - Explicação sobre vazamento de dados através de SQL Injection e como evitar isso utilizando os campos `text` e `value` nas queries com `where`.
 
 ---
 
 ## Dia 21
+
+- Invertigar pq o endopoint em produção `api/v1/status` não está funcionando (Error 500 - Internal Server Error)
+  - Acessar os logs do servidor - Entrar no Painel da Vercel `https://vercel.com/home`, aba `logs` dentro do projeto
+    - O erro estava acontecendo quando tentava acessar o postgres com as configurações de localhost
+    - **Não foi feito a configuração das variaveis de ambiente para o ambiente de produção**
+    - Adicionar um tratamento de erro parte do ato de se conectar ao banco no arquivo `database,js`
+    - Adicionar o serviço da `Neon` - https://console.neon.tech/app/org-red-water-60184778/welcome para usar o ambiente em produção para o banco `postegres`
+    - No arquivo `database.js` configurar o ssl para produção e para local não usar o ssl (pois não é aceito)
+      - `ssl: process.env.NODE_ENV === "development" ? false : true`
 
 ---
 
