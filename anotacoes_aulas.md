@@ -280,21 +280,91 @@
 
 ## Dia 21
 
-- Invertigar pq o endopoint em produção `api/v1/status` não está funcionando (Error 500 - Internal Server Error)
-  - Acessar os logs do servidor - Entrar no Painel da Vercel `https://vercel.com/home`, aba `logs` dentro do projeto
-    - O erro estava acontecendo quando tentava acessar o postgres com as configurações de localhost
-    - **Não foi feito a configuração das variaveis de ambiente para o ambiente de produção**
-    - Adicionar um tratamento de erro parte do ato de se conectar ao banco no arquivo `database,js`
-    - Adicionar o serviço da `Neon` - https://console.neon.tech/app/org-red-water-60184778/welcome para usar o ambiente em produção para o banco `postegres`
-    - No arquivo `database.js` configurar o ssl para produção e para local não usar o ssl (pois não é aceito)
-      - `ssl: process.env.NODE_ENV === "development" ? false : true`
+- Investigar por que o endpoint em produção `api/v1/status` não está funcionando (Error 500 - Internal Server Error)
+  - Acessar os logs do servidor:
+    - Entrar no painel da Vercel (aba **Logs**) dentro do projeto.
+  - O erro estava acontecendo porque o sistema tentava acessar o Postgres usando configurações de _localhost_.
+  - **As variáveis de ambiente para o ambiente de produção não estavam configuradas.**
+  - Adicionar tratamento de erro na parte responsável por conectar ao banco no arquivo `database.js`.
+  - Adicionar o serviço da **Neon** para usar o ambiente de produção do Postgres.
+    - URL de acesso: <https://console.neon.tech/app/org-red-water-60184778/welcome>
+  - No arquivo `database.js`, configurar o SSL:
+    - Em produção: usar SSL
+    - Em desenvolvimento/local: não usar SSL (não é aceito)
+    - Exemplo:
+      ```js
+      ssl: process.env.NODE_ENV === "development" ? false : true;
+      ```
 
 ---
 
 ## Dia 22
 
+- Aulas sobre migrations:
+  - As migrations servem para automatizar alterações na estrutura do banco de dados em diferentes ambientes.
+  - Elas **proíbem alterações manuais** diretamente no banco.
+  - Ao criar um arquivo de migração:
+    - No escopo `up` ficam as alterações que **serão aplicadas** ao esquema do banco.
+    - No escopo `down` ficam as operações para **desfazer** as alterações (caso necessário) — **cuidado**, pode ser perigoso!
+
+- Arquivos de migração:
+  - Definem a **ordem** das alterações que serão aplicadas.
+  - Contêm as **instruções** das modificações no banco de dados.
+
+- Framework de migração:
+  - **Garantir** que os arquivos sejam executados **na ordem correta**.
+  - **Garantir** que cada arquivo seja executado **uma única vez**.
+
+- Instalação do framework (`node-pg-migrate`):
+  - `npm install node-pg-migrate@6.2.2`
+
+- Instalação do módulo `dotenv` (para permitir que o script de migrations leia o arquivo de variáveis de ambiente):
+  - `npm install dotenv@16.4.4`
+
+- Criação dos scripts dentro do `package.json`:
+  - Para criar uma migration dentro da pasta `infra/migrations`:
+    - `"migration:create": "node-pg-migrate --migrations-dir infra/migrations create"`
+    - Ao rodar o comando (`npm run migration:create`), é necessário passar um **nome** para a migration. Exemplo:
+      - `npm run migration:create primeira_migracao`
+    - Explicação do arquivo gerado:
+      - O início do nome contém a **data e hora** (timestamp) da criação.
+      - Após o `"_"` aparece o **nome** escolhido na criação da migration.
+  - Para executar as migrations:
+    - `"migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up"`
+
+- No arquivo de variáveis de ambiente `.env.development`, adicionar a string de conexão com o banco local:
+  - `DATABASE_URL=postgres://local_user:isabelabela@localhost:5432/local_db`
+
 ---
 
 ## Dia 23
+
+---
+
+## Dia 24
+
+---
+
+## Dia 25
+
+---
+
+## Dia 26
+
+---
+
+## Dia 27
+
+---
+
+## Dia 28
+
+---
+
+## Dia 29
+
+---
+
+## Dia 30
 
 ---
