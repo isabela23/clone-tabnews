@@ -306,6 +306,7 @@
   - Ao criar um arquivo de migração:
     - No escopo `up` ficam as alterações que **serão aplicadas** ao esquema do banco.
     - No escopo `down` ficam as operações para **desfazer** as alterações (caso necessário) — **cuidado**, pode ser perigoso!
+      - Não será implementado nesse projeto!
 
 - Arquivos de migração:
   - Definem a **ordem** das alterações que serão aplicadas.
@@ -333,19 +334,51 @@
     - `"migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up"`
 
 - No arquivo de variáveis de ambiente `.env.development`, adicionar a string de conexão com o banco local:
-  - `DATABASE_URL=postgres://local_user:isabelabela@localhost:5432/local_db`
+  - `DATABASE_URL=postgres://local_user:local_password@localhost:5432/local_db`
 
 ---
 
 ## Dia 23
 
+- Criação do endpoint `/migrations`
+  - Quando o endpoint receber um `GET`, as migrations são rodadas em **Dry Run**
+    - Executa as migrations “de mentira”, apenas para visualizar o que seria feito numa execução real.
+  - Quando o endpoint receber um `POST`, as migrations são rodadas em **Live Run**
+    - Aqui as migrations são executadas de verdade.
+
+- Criação do teste para `GET` no novo endpoint:  
+  `Get to /api/v1/migrations should return 200`
+
+- Criação do arquivo:  
+  `tests/integration/api/v1/migrations/get.test.js`
+
+- Criação da tela `index.js` para o endpoint:  
+  `pages/api/v1/migrations/index.js`
+
+- Criação do arquivo para teste do `POST`:  
+  `tests/integration/api/v1/migrations/post.test.js`
+
+- Para rodar o test watch apenas nos arquivos desejados, por exemplo:
+  ```bash
+  npm run test:watch -- migrations
+  ```
+
 ---
 
 ## Dia 24
 
+- Colar os testes para rodar de forma serial (um teste atrás do outro) com a opção `--runInBand`. No script, trocar para `"test:watch": "jest --watchAll --runInBand"`.
+- Sempre rodar os testes com o banco limpo, ajustes em `get.test.js` e `post.test.js`. **Mas isso não é tão simples :(**
+  - Criar um arquivo `jest.config.js` para que os testes consigam usar os recursos do `next/jest`.
+
 ---
 
 ## Dia 25
+
+- Instalar o pacote `npm install dotenv-expand@11.0.6`.
+  - Esse pacote é para permitir variáveis como:  
+    `DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB`
+- Usar a Migration em produção.
 
 ---
 
