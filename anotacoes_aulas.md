@@ -384,6 +384,28 @@
 
 ## Dia 26
 
+- As `branches` no Git:
+  - **3 níveis de compreensão sobre a feature de branches:**
+    - **1º nível:**
+      - As branches possibilitam a criação de várias “cópias do código do projeto” paralelas.
+      - Tudo que é feito nessa cópia não vai alterar a branch `main` ou qualquer outra branch do projeto.
+    - **2º nível:**
+      - O Git não duplica todos os arquivos para cada branch — isso seria pesado demais.
+      - Ele duplica as **linhas do tempo** (os commits).
+    - **3º nível:**
+      - Na verdade, ele não duplica as linhas do tempo.
+      - A branch, na verdade, **só aponta para algum commit** específico.
+  - **Comandos:**
+    - `git branch` — Mostra a lista das branches que existem. A branch com `*` é a que você está no momento.
+    - `git status` — Também é possível ver a branch em que você está.
+    - `git branch nome_branch` — Cria uma nova branch.
+    - `git checkout nome_da_branch` — Para mudar para uma branch específica.
+    - `git switch nome_da_branch` — Faz a mesma coisa que o comando acima.
+- Criar um novo database (`staging`) na `Neon` para o banco de homologation
+- Na Vercel configurar as variaveis de ambiente do tipo `preview` com os dados do banco de homologation
+- **Na VERCEL funciona desse jeito: Todos os commits no `main`serão feitos em produção e os commits que não serão no `main` o deploy será em homologação**
+- Realização de testes no banco de homologation
+
 ---
 
 ## Dia 27
