@@ -400,11 +400,18 @@
     - `git status` — Também é possível ver a branch em que você está.
     - `git branch nome_branch` — Cria uma nova branch.
     - `git checkout nome_da_branch` — Para mudar para uma branch específica.
+    - `git checkout -b nome_da_branch` — Para criar uma nova branch e já mudar para ela.
     - `git switch nome_da_branch` — Faz a mesma coisa que o comando acima.
-- Criar um novo database (`staging`) na `Neon` para o banco de homologation
-- Na Vercel configurar as variaveis de ambiente do tipo `preview` com os dados do banco de homologation
-- **Na VERCEL funciona desse jeito: Todos os commits no `main`serão feitos em produção e os commits que não serão no `main` o deploy será em homologação**
-- Realização de testes no banco de homologation
+- Criar um novo database (`staging`) na `Neon` para o banco de homologação.
+- Na Vercel, configurar as variáveis de ambiente do tipo `preview` com os dados do banco de homologação.
+- **Na Vercel funciona assim: todos os commits no `main` serão deployados em produção; commits que não estão no `main` terão deploy em homologação (`preview`).**
+- Foi criada uma nova `branch` chamada `fix-migrations-endpoint`:
+  - `git branch fix-migrations-endpoint`
+  - `git checkout fix-migrations-endpoint`
+  - `git push --set-upstream origin fix-migrations-endpoint`
+  - Commitando essa nova branch, a Vercel vai fazer o deploy para homologação.
+- Realização de testes no banco de homologação.
+- Comando curl -> `curl -s  https://clone-tabnews-git-fix-migration-461f1e-isabela-tavares-projects.vercel.app/api/v1/status | python3 -m json.tool`
 
 ---
 
