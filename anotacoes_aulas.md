@@ -417,6 +417,12 @@
 
 ## Dia 27
 
+- Como se deleta branchs no git:
+  - **Comandos:**
+    - `git branch -d nome_da_branch`
+  - **Tem que tomar cuidado pra não deletar uma branch que não foi mergiada ainda**
+- O `merge` no Git:
+
 ---
 
 ## Dia 28
