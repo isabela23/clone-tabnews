@@ -421,6 +421,8 @@
   - **Comandos:**
     - `git branch -d nome_da_branch`
   - **Tem que tomar cuidado pra não deletar uma branch que não foi mergiada ainda**
+  - Quando isso acontecer é so entrar na branch da `ref`: por exemplo: `git checkout 4438c0b`
+  - E nela criar uma nova branch que vai voltar os dados `git checkout -b fix-migrations-endpoint`
 - O `merge` no Git:
 
 ---
