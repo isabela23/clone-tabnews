@@ -417,17 +417,31 @@
 
 ## Dia 27
 
-- Como se deleta branchs no git:
+- Como se deleta branches no Git:
   - **Comandos:**
     - `git branch -d nome_da_branch`
-  - **Tem que tomar cuidado pra não deletar uma branch que não foi mergiada ainda**
-  - Quando isso acontecer é so entrar na branch da `ref`: por exemplo: `git checkout 4438c0b`
-  - E nela criar uma nova branch que vai voltar os dados `git checkout -b fix-migrations-endpoint`
+  - **Tem que tomar cuidado para não deletar uma branch que não foi mergeada ainda**
+  - Quando isso acontecer, é só entrar na branch da `ref`: por exemplo `git checkout 4438c0b`
+  - Essa `ref` pode ser verificada com o comando `git reflog`
+  - E nela criar uma nova branch que vai voltar os dados: `git checkout -b fix-migrations-endpoint`
+
 - O `merge` no Git:
+  - Fast-forward
+    - Comando: `git merge nome_da_branch` (tem que estar na branch alvo, no caso a main, então rodar o comando na main)
+    - Depois tem que dar um `git push`
+  - 3-Way Merge
 
 ---
 
 ## Dia 28
+
+- Continuous Integration, Delivery e Deployment
+- Estratégias de Branch:
+  - Trunk-Based Development: Estratégia usar a timeline principal ("o tronco da árvore"-> main)
+    - Feature flags
+  - Feature Branch: Pra cada modificação no sistema, se cria uma branch separada e depois faz o merge para branch principal
+    - "a ideia é que cada nova funcionalidade seja desenvolvida em uma branch isolada, sem impactar diretamente o código principal."
+  - Git Flow: Nem entendi direito a explicação kkk Suporta multiplas versão do projeto em produção
 
 ---
 
