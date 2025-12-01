@@ -466,7 +466,7 @@
   - Para rodar comandos de forma concorrente:
     - Instalar a biblioteca: `npm install --save-dev concurrently@8.2.2`
   - No script do `package.json`, alterar o `test`:
-    - `"test": "npm run services:up && npm run wait-for-postgres && npm run migration:up && concurrently --names next,jest --hide next --kill-others --success command-jest 'next dev' 'jest --runInBand'"`
+    - `"test": "npm run services:up && npm run wait-for-postgres && concurrently --names next,jest --hide next --kill-others --success command-jest 'next dev' 'jest --runInBand'"`
 
   - É preciso criar um orquestrador para garantir a ordem:
     - Criar o arquivo `test/orchestrator.js`
