@@ -447,19 +447,31 @@
 
 ## Dia 29
 
-- Objetivo rodar o `npm run dev` e todo o sistema rodar junto. (Database/ Migrations/ Web Server / Mail Server). Estabilizar!!
-- É importante ter um ambiente local estabilizado / Testes locais estabilizados / CI estabilizado
-- No script do `package.json` alterar o `dev` para `npm run services:up && npm run migration:up  && next dev`
-  - Vai da erro, pq ele vai tentar subir o docker ao mesmo tempo rodar as migrations, ai não terá o banco rodando ainda
-  - Race Condition (Condição de corrida), a ordem de chegada dos recurso dessa corrida
-  - Pra solucionar esse problema, basicamente a execução das migrations precisa esperar que o serviço tenha subir `services:up`, pra começar a rodar
-    - Criação do script `infra/scripts/wait-for-postgres.js`
-    - Em `package.json` cria o script ` "wait-for-postgres":"node infra/scripts/wait-for-postgres.js"`
-    - No arquivo `compose.yaml` adicionar a propriedade para nome do container `container_name` -> "postgres-dev"
-    - A ideia é ficar perguntando para o docker se o banco ja esta aceitando conexão e existe um comando para isso:
-      - `docker exec postgres-dev pg_isready`
-- Instalação de uma nova biblioteca `npm install --save-dev concurrently@8.2.2`
-- Instalação de uma nova biblioteca `npm install async-retry@1.3.3`
+- Objetivo: rodar o `npm run dev` e fazer todo o sistema rodar junto (Database / Migrations / Web Server / Mail Server). Estabilizar!
+- É importante ter um ambiente local estabilizado / testes locais estabilizados / CI estabilizado.
+
+- Para ter o ambiente local estabilizado:
+  - No script do `package.json`, alterar o `dev` para:  
+    `npm run services:up && npm run migration:up && next dev`
+    - Vai dar erro, porque ele vai tentar subir o Docker ao mesmo tempo em que roda as migrations, e o banco ainda não estará disponível.
+    - Race condition (condição de corrida): a ordem de chegada dos recursos afeta a execução.
+    - Para solucionar esse problema, as migrations precisam esperar o serviço subir (`services:up`) antes de rodar.
+      - Criar o script `infra/scripts/wait-for-postgres.js`
+      - No `package.json`, criar o script `"wait-for-postgres": "node infra/scripts/wait-for-postgres.js"`
+      - No arquivo `compose.yaml`, adicionar a propriedade `container_name: "postgres-dev"`
+      - A ideia é ficar perguntando ao Docker se o banco já está aceitando conexão. O comando é:
+        - `docker exec postgres-dev pg_isready`
+
+- Para ter os testes locais estabilizados:
+  - Para rodar comandos de forma concorrente:
+    - Instalar a biblioteca: `npm install --save-dev concurrently@8.2.2`
+  - No script do `package.json`, alterar o `test`:
+    - `"test": "npm run services:up && npm run wait-for-postgres && npm run migration:up && concurrently --names next,jest --hide next --kill-others --success command-jest 'next dev' 'jest --runInBand'"`
+
+  - É preciso criar um orquestrador para garantir a ordem:
+    - Criar o arquivo `test/orchestrator.js`
+  - Instalar a biblioteca `async-retry@1.3.3`:
+    - Essa biblioteca serve para ficar tentando acessar a página web até conseguir.
 
 ---
 
