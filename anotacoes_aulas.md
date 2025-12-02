@@ -477,4 +477,6 @@
 
 ## Dia 30
 
+- Otimização do script feito na aula do **dia 29**!
+
 ---
