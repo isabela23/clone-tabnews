@@ -491,6 +491,11 @@
   - `name`: Nome do evento que será monitorado
   - `on`: é o comando feito no git que o job vai ficar monitorando, ex: `push`, quando um push for feito
   - `jobs`: quando o evento acontecer, ex `um push foi feito`, o job é o que será feito depois disso
-- Criação do arquivo `.github/workflows/linting.yaml` para criação do workflow que vai fazer uma verificação na formatação do código
+- Criação do arquivo `.github/workflows/linting.yaml` para criação do workflow para verificação de linting
+  - Criação da job do prettier para a formatação do código
+  - Criação da job do ESlint para a verificação da qualidade do código:
+    - Instalação do pacote `npm instal eslint`
+    - Criação do arquivo de configuração das regras de qualida `eslint.config.js`
+    - Add script no packaege.json `"lint:eslint:check": "npx eslint ."`
 
 ---
