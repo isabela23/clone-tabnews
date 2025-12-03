@@ -491,10 +491,5 @@
     - `name`: Nome do evento que será monitorado
     - `on`: é o comando feito no git que o job vai ficar monitorando, ex: `push`, quando um push for feito
     - `jobs`: quando o evento acontecer, ex `um push foi feito`, o job é o que será feito depois disso
-      - No projeto atual, o job será rodar o jest (teste automatico)
-    - `- run: npm ci` - Vai instalar os pacotes do projeto
-    - `- run: npm test` - Vai rodar os testes
-- Criação de um workflow para verificar a qualidade do código (formatação) - Linting (Análise estática de código)
-- `eslint` - um pacote de qualidade de código
 
 ---
