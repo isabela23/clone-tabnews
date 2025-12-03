@@ -487,6 +487,10 @@
 - Criação do diretorio: `.github/workflows/`
 - Criação do arquivo `.github/workflows/tests.yaml`
   - Esse arquivo serve para configurar o job para execução dos testes automatizados em um ambiente remoto:
-  - Explicação alguns dos campos do arquivo `tests.yaml`: - `name`: Nome do evento que será monitorado - `on`: é o comando feito no git que o job vai ficar monitorando, ex: `push`, quando um push for feito - `jobs`: quando o evento acontecer, ex `um push foi feito`, o job é o que será feito depois disso
+  - Explicação alguns dos campos do arquivo `tests.yaml`:
+  - `name`: Nome do evento que será monitorado
+  - `on`: é o comando feito no git que o job vai ficar monitorando, ex: `push`, quando um push for feito
+  - `jobs`: quando o evento acontecer, ex `um push foi feito`, o job é o que será feito depois disso
+- Criação do arquivo `.github/workflows/linting.yaml` para criação do workflow que vai fazer uma verificação na formatação do código
 
 ---
