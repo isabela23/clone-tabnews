@@ -571,6 +571,11 @@
     - Instalação do pacote `commitizen`: `npm i -D commitizen@4.3.0`, para auxiliar na visualização e padronização dos commits.
       - Site https://www.npmjs.com/package/commitizen
     - Rodar no terminal: `npx commitizen init cz-conventional-changelog --save-dev --save-exact`
-    - Criação do script `"commit": "cz"`.
+    - Criação do script `"commit": "cz"`
+      - Para criar um commit com a explicação da formatação é so fazer o `git add` e depois rodar `npm run commit`
+
+---
+
+## Dia 34
 
 ---
