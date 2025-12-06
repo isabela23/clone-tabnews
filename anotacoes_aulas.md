@@ -520,7 +520,7 @@
 ## Dia 33
 
 - Instalação do Linter de Commits — **commitlint**:
-  - Pacote para rodar por linha de comando o commitlint: `npm i -D @commitlint/cli@19.3.0`
+  - Pacote para rodar o commitlint por linha de comando: `npm i -D @commitlint/cli@19.3.0`
     - Site: https://www.npmjs.com/package/@commitlint/cli
   - Módulo com as regras do commitlint: `npm i -D @commitlint/config-conventional@19.2.2`
     - Site: https://www.npmjs.com/package/@commitlint/config-conventional
@@ -534,7 +534,7 @@
 
 - Comando `git rebase`:
   - Refaz a base da branch, reorganizando os commits.
-  - **Usar quando esquecer de fazer o `git pull` na main** e ela ficar desatualizada em relação à branch.
+  - **Usar quando esquecer de fazer o `git pull` na main**, deixando a main desatualizada em relação à branch.
   - Como usar:
     - Fazer `git pull` na main (que está desatualizada em relação à branch).
     - Voltar para a branch em questão (que está com os dados atualizados).
@@ -544,16 +544,33 @@
     - Depois de resolver o conflito:
       - Rodar `git add`.
       - Continuar o rebase: `git rebase --continue`.
-    - Se não tivesse ocorrido conflito, o rebase teria funcionado diretamente na etapa `git rebase main`
+    - Se não tivesse ocorrido conflito, o rebase teria funcionado diretamente na etapa `git rebase main`.
     - Fazer um `git push -f` na branch.
-- Criação de um job para verificar a formatação das mensagens de commit!
-  - Criação do workflow: commitlint
-    - Para validar os commits feitos com o commitlint, modificar o arquivo `.github/workflows/linting.yaml`
-- Instalação do husky: `npm install --save-dev husky@9.1.4`
-  - Configuração inicial: `npm husky init`
-  - Criação do arquivo `commit-msg`.
 
-- Instalação do pacote `commitizen`: `npm i -D commitizen@4.3.0`, para ajudar na visualização e padronização dos commits.
+- Criação de um job para verificar a forma das mensagens de commit:
+  - Criação do workflow **commitlint**:
+    - Para validar os commits feitos com o commitlint, modificar o arquivo `.github/workflows/linting.yaml`.
+
+- Caso ocorra um problema em um commit anterior do seu pull request no job de formatação de commit:
+  - Fazer um `git rebase` a partir do commit anterior ao commit com formatação errada.
+    - Mas precisa ser um rebase interativo: `git rebase -i HEAD~2`  
+      (Esse `HEAD~2` representa quantos commits para trás — no exemplo, 2.)
+    - Escolher o commit que deve ter a mensagem alterada e usar o comando **reword** (`r`) para editar a mensagem.  
+      Para isso, trocar `pick` por `r` no arquivo que abrir (salvar e fechar).
+    - Em seguida, abrirá um novo arquivo onde você poderá ajustar a mensagem do commit para algo que passe no formatador. (Salvar e fechar o arquivo)
+    - Faz um `git push -f` na branch
+
+- Git Hooks para criação de commits (mas so funciona local, pq nao tem como subir para o git os hooks criados, mas tem como contornar isso):
+  - Serve para rodar scripts/eventos
+  - Para contornar a questão q o hooks so funciona localmente, vamos o pacote abaixo:
+  - Instalação do husky: `npm install --save-dev husky@9.1.4`
+    - Site https://typicode.github.io/husky/
+    - Configuração inicial: `npx husky init`
+    - Criação do arquivo `.husky/commit-msg`.
+      - Esse arquivo vai verificar o commit que a gente for fazer (ele vai rodar antes do commit ser realmente criado, se o formato estiver errado, o commit não será criado)
+
+- Instalação do pacote `commitizen`: `npm i -D commitizen@4.3.0`, para auxiliar na visualização e padronização dos commits.
+  - Site https://www.npmjs.com/package/commitizen
 
 - Criação do script `"commit": "cz"`.
 
