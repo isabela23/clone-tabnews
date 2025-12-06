@@ -568,10 +568,9 @@
     - Configuração inicial: `npx husky init`
     - Criação do arquivo `.husky/commit-msg`.
       - Esse arquivo vai verificar o commit que a gente for fazer (ele vai rodar antes do commit ser realmente criado, se o formato estiver errado, o commit não será criado)
-
-- Instalação do pacote `commitizen`: `npm i -D commitizen@4.3.0`, para auxiliar na visualização e padronização dos commits.
-  - Site https://www.npmjs.com/package/commitizen
-
-- Criação do script `"commit": "cz"`.
+    - Instalação do pacote `commitizen`: `npm i -D commitizen@4.3.0`, para auxiliar na visualização e padronização dos commits.
+      - Site https://www.npmjs.com/package/commitizen
+    - Rodar no terminal: `npx commitizen init cz-conventional-changelog --save-dev --save-exact`
+    - Criação do script `"commit": "cz"`.
 
 ---
