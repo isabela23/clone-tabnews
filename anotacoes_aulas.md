@@ -519,24 +519,42 @@
 
 ## Dia 33
 
-- Instalação do Linter de Commits - **commitlint**:
-  - Rodar por linha de comando: `npm i -D @commitlint/cli@19.3.0`
-    - Site https://www.npmjs.com/package/@commitlint/cli
-  - Modulo com as regras do commitlint: `npm i -D @commitlint/config-conventional@19.2.2`
-    - Site https://www.npmjs.com/package/@commitlint/config-conventional
+- Instalação do Linter de Commits — **commitlint**:
+  - Pacote para rodar por linha de comando o commitlint: `npm i -D @commitlint/cli@19.3.0`
+    - Site: https://www.npmjs.com/package/@commitlint/cli
+  - Módulo com as regras do commitlint: `npm i -D @commitlint/config-conventional@19.2.2`
+    - Site: https://www.npmjs.com/package/@commitlint/config-conventional
   - Criação do arquivo `commitlint.config.js`
   - Rodar no terminal o comando `npx commitlint`
-    - Pra testar uma mensagem como valida pelo commitlint
-      -> Terminal: `echo "teste" | npx commitlint` (Vai testar se a mensagem "teste" é valida pra um commit), (não vai passar)
-      -> Terminal: `echo "teste: mensagem principal" | npx commitlint` (não vai passar)
-      -> Terminal: `echo "feat: mensagem principal" | npx commitlint`. Vai passar!!
-      -> Terminal: `echo "feat(escopo): mensagem principal" | npx commitlint`. Vai passar!!
-  - Criação de um job para verificar a formatação das mensagens de commit
-- Comando `git rebase`
+    - Para testar se uma mensagem é válida pelo commitlint:
+      - Terminal: `echo "teste" | npx commitlint` (não vai passar)
+      - Terminal: `echo "teste: mensagem principal" | npx commitlint` (não vai passar)
+      - Terminal: `echo "feat: mensagem principal" | npx commitlint` (vai passar!)
+      - Terminal: `echo "feat(escopo): mensagem principal" | npx commitlint` (vai passar!)
+
+- Comando `git rebase`:
+  - Refaz a base da branch, reorganizando os commits.
+  - **Usar quando esquecer de fazer o `git pull` na main** e ela ficar desatualizada em relação à branch.
+  - Como usar:
+    - Fazer `git pull` na main (que está desatualizada em relação à branch).
+    - Voltar para a branch em questão (que está com os dados atualizados).
+    - Na branch, rodar `git rebase main` (pode aparecer uma mensagem de erro — é normal!).
+    - Rodar `git status` para ver qual arquivo está causando conflito.
+    - Neste caso, o professor apagou o arquivo `package-lock.json`, que estava gerando conflito, e depois rodou `npm i` para gerar um novo arquivo (foi um ajuste específico para essa situação).
+    - Depois de resolver o conflito:
+      - Rodar `git add`.
+      - Continuar o rebase: `git rebase --continue`.
+    - Se não tivesse ocorrido conflito, o rebase teria funcionado diretamente na etapa `git rebase main`
+    - Fazer um `git push -f` na branch.
+- Criação de um job para verificar a formatação das mensagens de commit!
+  - Criação do workflow: commitlint
+    - Para validar os commits feitos com o commitlint, modificar o arquivo `.github/workflows/linting.yaml`
 - Instalação do husky: `npm install --save-dev husky@9.1.4`
   - Configuração inicial: `npm husky init`
-  - Criação do arquivo `commit-msg`
-- Instalação do pacote `npm i -D commitizen@4.3.0` para ajudar na visualização do commit
-- Criação do script `"commit:"cz"`
+  - Criação do arquivo `commit-msg`.
+
+- Instalação do pacote `commitizen`: `npm i -D commitizen@4.3.0`, para ajudar na visualização e padronização dos commits.
+
+- Criação do script `"commit": "cz"`.
 
 ---
