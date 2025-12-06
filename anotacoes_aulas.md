@@ -503,3 +503,40 @@
       - `npm install --save-dev eslint-config-prettier@9.1.0`
 
 ---
+
+## Dia 32
+
+- Aulas sobre padrão de commits!
+- Boas práticas:
+  - Separar cada mudança lógica em um commit separado.
+  - Cada commit precisa ser justificável por seus próprios méritos. (**Independentes de alterações futuras**)
+  - Mensagem do commit:
+    - Tempo verbal: Imperativo
+      - "Ajusta o bug de cadastro"
+      - "Adiciona um botão maior na interface"
+
+---
+
+## Dia 33
+
+- Instalação do Linter de Commits - **commitlint**:
+  - Rodar por linha de comando: `npm i -D @commitlint/cli@19.3.0`
+    - Site https://www.npmjs.com/package/@commitlint/cli
+  - Modulo com as regras do commitlint: `npm i -D @commitlint/config-conventional@19.2.2`
+    - Site https://www.npmjs.com/package/@commitlint/config-conventional
+  - Criação do arquivo `commitlint.config.js`
+  - Rodar no terminal o comando `npx commitlint`
+    - Pra testar uma mensagem como valida pelo commitlint
+      -> Terminal: `echo "teste" | npx commitlint` (Vai testar se a mensagem "teste" é valida pra um commit), (não vai passar)
+      -> Terminal: `echo "teste: mensagem principal" | npx commitlint` (não vai passar)
+      -> Terminal: `echo "feat: mensagem principal" | npx commitlint`. Vai passar!!
+      -> Terminal: `echo "feat(escopo): mensagem principal" | npx commitlint`. Vai passar!!
+  - Criação de um job para verificar a formatação das mensagens de commit
+- Comando `git rebase`
+- Instalação do husky: `npm install --save-dev husky@9.1.4`
+  - Configuração inicial: `npm husky init`
+  - Criação do arquivo `commit-msg`
+- Instalação do pacote `npm i -D commitizen@4.3.0` para ajudar na visualização do commit
+- Criação do script `"commit:"cz"`
+
+---
