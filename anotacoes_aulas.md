@@ -579,7 +579,7 @@
     - `git secrets --register-aws`
     - `git secrets --add 'postgres(ql)?:\/\/[^ ]*'`
     - `git secrets --add '(_?PASSWORD|PWD|PASS)=.+'`
-    - `git secrets --add '(DATABASE_URL|DB_URL|MONGO_URL|MYSQL_URL)=.+'`
+    - `git secrets --add '(DATABASE_URL|DB_URL|MONGO_URL|MYSQL_URL|POSTGRES_PASSWORD)=.+'`
     - `git secrets --add '[A-Za-z0-9._%+-]+:[^ ]+@'`
     - `git secrest --add 'DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB'`
   - Verificar as regras criadas: `git secrets --list`
