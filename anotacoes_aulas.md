@@ -581,10 +581,11 @@
     - `git secrets --add '(_?PASSWORD|PWD|PASS)=.+'`
     - `git secrets --add '(DATABASE_URL|DB_URL|MONGO_URL|MYSQL_URL)=.+'`
     - `git secrets --add '[A-Za-z0-9._%+-]+:[^ ]+@'`
+    - `git secrest --add 'DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB'`
   - Verificar as regras criadas: `git secrets --list`
   - Para adicionar um arquivo que deve ser ignorado na verificação das senhas:
     - `git secrets --add --allowed "anotacoes_aulas.md"`
-    - `git secrets --add --allowed ".env.development"`
+    - `git secrets --add --allowed 'postgres:\/\/\$POSTGRES_USER:\$POSTGRES_PASSWORD@\${POSTGRES_HOST}:\${POSTGRES_PORT}\/\$POSTGRES_DB'`
 
 ---
 
