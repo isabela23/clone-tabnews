@@ -573,6 +573,19 @@
     - Rodar no terminal: `npx commitizen init cz-conventional-changelog --save-dev --save-exact`
     - Criação do script `"commit": "cz"`
       - Para criar um commit com a explicação da formatação é so fazer o `git add` e depois rodar `npm run commit`
+- Criar um husky pra verificar senhas no projeto:
+  - Instalar o `git secrets`: `sudo apt-get install git-secrets`
+  - Adicionar regras para pegar tokens comuns:
+    - `git secrets --register-aws`
+    - `git secrets --add 'postgres(ql)?:\/\/[^ ]*'`
+    - `git secrets --add '(_?PASSWORD|PWD|PASS)=.+'`
+    - `git secrets --add '(DATABASE_URL|DB_URL|MONGO_URL|MYSQL_URL|POSTGRES_PASSWORD)=.+'`
+    - `git secrets --add '[A-Za-z0-9._%+-]+:[^ ]+@'`
+    - `git secrest --add 'DATABASE_URL=postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB'`
+  - Verificar as regras criadas: `git secrets --list`
+  - Para adicionar um arquivo que deve ser ignorado na verificação das senhas:
+    - `git secrets --add --allowed "anotacoes_aulas.md"`
+    - `git secrets --add --allowed 'postgres:\/\/\$POSTGRES_USER:\$POSTGRES_PASSWORD@\${POSTGRES_HOST}:\${POSTGRES_PORT}\/\$POSTGRES_DB'`
 
 ---
 

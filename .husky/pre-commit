@@ -1,0 +1,2 @@
+# Verificar por segredos nos arquivos staged
+git secrets --scan --cached
