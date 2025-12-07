@@ -62,17 +62,21 @@
 ## Dia 10
 
 - **Ligar sincronização do Editor**
+
   - O Codespaces perde as formatações definidas para o editor, mas é possível alterar essa configuração no usuário, na opção **"Ativar alterações em nuvem"**, e depois conectar sua conta do Git nas configurações.
 
 - **Configurar o EditorConfig**
+
   - O EditorConfig é um arquivo `.editorconfig` salvo no repositório com as regras de formatação para o código.
   - Vale ressaltar que o EditorConfig faz a formatação **no momento em que você escreve** o código; ele **não** faz uma varredura no que já foi escrito. Para garantir que todo o código fique padronizado, será usado o Prettier.
 
 - **Configurar o Prettier**
+
   - Utilizado para garantir a formatação do código.
   - Para instalar, rodar no terminal: `npm install prettier -D`
   - **OBS:** A opção `-D` significa que o Prettier será instalado apenas como dependência de desenvolvimento, já que é usado somente no processo de escrita do código.
   - No arquivo `package.json`, foi adicionado um comando para rodar o Prettier de forma mais amigável:
+
     - Esse comando faz a conferencia dos arquivos:
 
     ```json
@@ -123,15 +127,18 @@
 ## Dia 14
 
 - **PoC** (Proof of Concept — Prova de Conceito)
+
   - Responde à pergunta: **Qual o menor custo que posso ter para descobrir qual caminho seguir?**
   - Responde à pergunta: **Quais evidências afirmam que determinado conceito irá funcionar?**
 
 - **MVP** (Minimum Viable Product — Produto Mínimo Viável)
+
   - Fazer o mínimo necessário, mas com excelente qualidade.
 
 - Criação da **Milestone 1**: Fundação
 
 - **Overengineering**
+
   - Complexidade desnecessária que dificulta o progresso do projeto.
 
 - **Arquitetura de Software**
@@ -157,7 +164,9 @@
 ## Dia 15
 
 - **Testes Automatizados**
+
   - Instalar o Test Runner (usaremos o **Jest** neste curso):
+
     - No terminal: `npm install --save-dev jest@29.6.2`
     - No arquivo **package.json**, adicionar em **scripts**:
       - `"test": "jest"`
@@ -168,6 +177,7 @@
       - `npm run test:watch`
 
   - Criar um teste simples (“teste de teste”)
+
     - Criada a pasta `test`
     - Função `expect` – Valor gerado dinamicamente
     - Função `toBe` – Valor esperado (hardcoded)
@@ -212,6 +222,7 @@
 ## Dia 17
 
 - **Banco de dados — como escolher?**
+
   - **DBMS (Database Management System / SGBD)**
     - Ex: MySQL, Postgres, SQL Server, MongoDB...
     - No projeto foi escolhido o **Postgres**
@@ -301,6 +312,7 @@
 ## Dia 22
 
 - Aulas sobre migrations:
+
   - As migrations servem para automatizar alterações na estrutura do banco de dados em diferentes ambientes.
   - Elas **proíbem alterações manuais** diretamente no banco.
   - Ao criar um arquivo de migração:
@@ -309,20 +321,25 @@
       - Não será implementado nesse projeto!
 
 - Arquivos de migração:
+
   - Definem a **ordem** das alterações que serão aplicadas.
   - Contêm as **instruções** das modificações no banco de dados.
 
 - Framework de migração:
+
   - **Garantir** que os arquivos sejam executados **na ordem correta**.
   - **Garantir** que cada arquivo seja executado **uma única vez**.
 
 - Instalação do framework (`node-pg-migrate`):
+
   - `npm install node-pg-migrate@6.2.2`
 
 - Instalação do módulo `dotenv` (para permitir que o script de migrations leia o arquivo de variáveis de ambiente):
+
   - `npm install dotenv@16.4.4`
 
 - Criação dos scripts dentro do `package.json`:
+
   - Para criar uma migration dentro da pasta `infra/migrations`:
     - `"migration:create": "node-pg-migrate --migrations-dir infra/migrations create"`
     - Ao rodar o comando (`npm run migration:create`), é necessário passar um **nome** para a migration. Exemplo:
@@ -341,6 +358,7 @@
 ## Dia 23
 
 - Criação do endpoint `/migrations`
+
   - Quando o endpoint receber um `GET`, as migrations são rodadas em **Dry Run**
     - Executa as migrations “de mentira”, apenas para visualizar o que seria feito numa execução real.
   - Quando o endpoint receber um `POST`, as migrations são rodadas em **Live Run**
@@ -418,6 +436,7 @@
 ## Dia 27
 
 - Como se deleta branches no Git:
+
   - **Comandos:**
     - `git branch -d nome_da_branch`
   - **Tem que tomar cuidado para não deletar uma branch que não foi mergeada ainda**
@@ -451,6 +470,7 @@
 - É importante ter um ambiente local estabilizado / testes locais estabilizados / CI estabilizado.
 
 - Para ter o ambiente local estabilizado:
+
   - No script do `package.json`, alterar o `dev` para:  
     `npm run services:up && npm run migration:up && next dev`
     - Vai dar erro, porque ele vai tentar subir o Docker ao mesmo tempo em que roda as migrations, e o banco ainda não estará disponível.
@@ -463,9 +483,11 @@
         - `docker exec postgres-dev pg_isready`
 
 - Para ter os testes locais estabilizados:
+
   - Para rodar comandos de forma concorrente:
     - Instalar a biblioteca: `npm install --save-dev concurrently@8.2.2`
   - No script do `package.json`, alterar o `test`:
+
     - `"test": "npm run services:up && npm run wait-for-postgres && concurrently --names next,jest --hide next --kill-others --success command-jest 'next dev' 'jest --runInBand'"`
 
   - É preciso criar um orquestrador para garantir a ordem:
@@ -520,6 +542,7 @@
 ## Dia 33
 
 - Instalação do Linter de Commits — **commitlint**:
+
   - Pacote para rodar o commitlint por linha de comando: `npm i -D @commitlint/cli@19.3.0`
     - Site: https://www.npmjs.com/package/@commitlint/cli
   - Módulo com as regras do commitlint: `npm i -D @commitlint/config-conventional@19.2.2`
@@ -533,6 +556,7 @@
       - Terminal: `echo "feat(escopo): mensagem principal" | npx commitlint` (vai passar!)
 
 - Comando `git rebase`:
+
   - Refaz a base da branch, reorganizando os commits.
   - **Usar quando esquecer de fazer o `git pull` na main**, deixando a main desatualizada em relação à branch.
   - Como usar:
@@ -548,10 +572,12 @@
     - Fazer um `git push -f` na branch.
 
 - Criação de um job para verificar a forma das mensagens de commit:
+
   - Criação do workflow **commitlint**:
     - Para validar os commits feitos com o commitlint, modificar o arquivo `.github/workflows/linting.yaml`.
 
 - Caso ocorra um problema em um commit anterior do seu pull request no job de formatação de commit:
+
   - Fazer um `git rebase` a partir do commit anterior ao commit com formatação errada.
     - Mas precisa ser um rebase interativo: `git rebase -i HEAD~2`  
       (Esse `HEAD~2` representa quantos commits para trás — no exemplo, 2.)
@@ -590,5 +616,27 @@
 ---
 
 ## Dia 34
+
+- Tipo da Licença
+
+  - Usada no projeto é a licença MIT
+  - Pra usar é so criar um arquivo, chamado LICENSE, pelo próprio git hub (pr lá é mais simples, já aparece os modelos).
+
+- Refatoração do código:
+  - Atualização das dependências do projeto (os módulos instalados)
+    - Tomar cuidado com a atualização dos pacotes, pois se em uma nova versão de um pacote tiver uma **breaking change** isso pode afetar o seu código.
+    - Pra saber sobre as **breaking change** é so verificar a versão [].[].[]
+      - Alteração no último [].[].**[]**, chamado de `patch`. São coisas simples alteradas (nenhuma nova feature)
+      - Alteração no do meio [].**[]**.[], chamado de `minor`. Qaundo adiciona algo novo.
+      - Alteração no primeiro **[]**.[].[], chamado de `major`. **Breaking Change**, pode quebrar a integração com o seu projeto.
+    - Quando tem um `^` na frente da versão vc da atonomia para o `npm` instalar nova versões até `minor`. Ex: `^13.1.6`
+    - Quando tem um `~` na frente da versão vc da atonomia para o `npm` instalar nova versões `patch`. Ex: `~13.1.6`
+  - Para verificar as dependências desatualizadas do proejto só rodar: `npm outdated`
+  - Para verificar se alguam nova versão possui alguma brecha de segurança: `npm audit`
+  - Vamos remover o `^` das versão do nosso projeto do arquivo `packaeg.json`, pra diminuir a autonomia do `npm` ao instalar dependências pra aumentar a consistência do projeto.
+    - Depois de removido o `^`, rodar `npm i`, vai rodar as versões do jeito q está no `packaeg.json`
+    - Rodar um `npm test` so pra verificar se nada quebrou
+  - Instalação do pacote `npx npm-check-updates -i` (Gerenciador de dependências)
+  - **Peer dependencies** são dependências que uma biblioteca precisa, mas que **devem ser instaladas diretamente pelo projeto que usa essa biblioteca**, e não pela própria biblioteca. Elas existem para evitar conflitos quando **duas dependências diferentes precisam da mesma outra dependência compartilhada**, garantindo que todas usem a mesma versão.
 
 ---
