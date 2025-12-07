@@ -591,4 +591,22 @@
 
 ## Dia 34
 
+- Tipo da Licença
+  - Usada no projeto é a licença MIT
+  - Pra usar é so criar um arquivo, chamado LICENSE, pelo próprio git hub (pr lá é mais simples, já aparece os modelos).
+
+- Refatoração do código:
+  - Atualização das dependências do projeto (os módulos instalados)
+    - Tomar cuidado com a atualização dos pacotes, pois se em uma nova versão de um pacote tiver uma **breaking change** isso pode afetar o seu código.
+    - Pra saber sobre as **breaking change** é so verificar a versão [].[].[]
+      - Alteração no último [].[].**[]**, chamado de `patch`. São coisas simples alteradas (nenhuma nova feature)
+      - Alteração no do meio [].**[]**.[], chamado de `minor`. Qaundo adiciona algo novo.
+      - Alteração no primeiro **[]**.[].[], chamado de `major`. **Breaking Change**, pode quebrar a integração com o seu projeto.
+    - Quando tem um `^` na frente da versão vc da atonomia para o `npm` instalar nova versões até `minor`. Ex: `^13.1.6`
+    - Quando tem um `~` na frente da versão vc da atonomia para o `npm` instalar nova versões `patch`. Ex: `~13.1.6`
+  - Para verificar as dependências desatualizadas do proejto só rodar: `npm outdated`
+  - Para verificar se alguam nova versão possui alguma brecha de segurança: `npm audit`
+  - Vamos remover o `^` das versão do nosso projeto do arquivo `packaeg.json`, pra diminuir a autonomia do `npm` ao instalar dependências pra aumentar a consistência do projeto.
+    - Depois de removido, rodar `npm i`, vai rodar as versões do jeito q está no `packaeg.json`
+
 ---
