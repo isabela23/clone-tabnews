@@ -640,3 +640,10 @@
   - **Peer dependencies** são dependências que uma biblioteca precisa, mas que **devem ser instaladas diretamente pelo projeto que usa essa biblioteca**, e não pela própria biblioteca. Elas existem para evitar conflitos quando **duas dependências diferentes precisam da mesma outra dependência compartilhada**, garantindo que todas usem a mesma versão.
 
 ---
+
+## Dia 35
+
+- Refatoração do código
+  - Feito refatoração nos script do `package.json` alterado ordem dos scripts e alguns nomes.
+
+---
