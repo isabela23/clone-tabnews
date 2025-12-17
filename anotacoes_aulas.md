@@ -648,3 +648,19 @@
   - Nos scripts é possivel adicionar algo para ser feito antes de algum script ou depois, por exemplo, `"posttest": "npm run services:stop",`, para parar o docker depois de rodar os testes.
 
 ---
+
+## Dia 37
+
+- Aula sobre react
+- Partes importantes do react: Visual, Funcionalidade e Memória
+- Os componentes (as tags, <p>) são a base do react, saber eles já ajuda muito.
+- A aula foca em criar um componente de teste chamado <CapsLock> (Qualquer texto passado, ira retornar um texto em caixa alta)
+
+  - O <CapsLock> irá aceitar a propriedade texto <CapsLock texto="...">]
+  - Os testes serão feitos na página api/vi/status -> Criação di diretório `pages/status/index.js`
+
+- Na aula dois a página `status` foi realmente criada.
+  - Instalação do pacote `swr` (para conseguir fazer data fetch)
+    - Site: https://www.npmjs.com/package/swr
+
+---
