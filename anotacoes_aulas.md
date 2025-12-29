@@ -664,3 +664,33 @@
     - Site: https://www.npmjs.com/package/swr
 
 ---
+
+## Dia 38
+
+- Erros:
+  - 1º Padronizar
+  - 2º Sempre que possível usar o construtor de erros (no Java script: `new Error()`)
+  - 3º Stack Trance (Vem com o construtor)
+- Saber separar os tipos de erros em uma aplicação:
+  - Erros de validação de campo;
+  - Erros de aplicação/infraestrutura
+- Erros customizados ja criados no java script do construtor de erros:
+  - ReferenceError
+  - SyntaxError
+  - RangeError
+  - TypeError
+
+---
+
+## Dia 39
+
+- Aula 1
+  -> Criação do arquivo dos erros: `infra/errors.js`
+- Aula 2
+  -> Instalção de um novo pacote para padronização dos controlllers: `next-controller`
+- Aula 3
+  -> Desafio
+- Aula 4
+  -> Criação do arquivo dos controllers: `infra/controller.js`
+
+---
