@@ -686,8 +686,12 @@
 
 - Aula 1
   -> Criação do arquivo dos erros: `infra/errors.js`
+  -> Criação do erro chamado `InternalServerError`
 - Aula 2
   -> Instalção de um novo pacote para padronização dos controlllers: `next-controller`
+  -> Criação do erro chamado `MethodNotAllowedError`
+  -> Padronizar a resposta da API para métodos não aceitos pelos endpoints.
+  -> Criação do arquivo `tests/integration/api/v1/status/post.test.js`
 - Aula 3
   -> Desafio
 - Aula 4
