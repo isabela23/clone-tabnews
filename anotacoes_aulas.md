@@ -698,3 +698,8 @@
   -> Criação do arquivo dos controllers: `infra/controller.js`
 
 ---
+
+## Dia 40
+
+- Criação do arquivo `models/migrator.js`
+  - Criação do model "migrator"
