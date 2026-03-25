@@ -48,7 +48,7 @@ async function create(userInputValues) {
       WHERE 
         LOWER(email) = LOWER($1)
       ;`,
-      values: [userInputValues.email],
+      values: [email],
     });
     if (results.rowCount > 0) {
       throw new ValidationError({
@@ -67,7 +67,7 @@ async function create(userInputValues) {
       WHERE 
         LOWER(username) = LOWER($1)
       ;`,
-      values: [userInputValues.username],
+      values: [username],
     });
     if (results.rowCount > 0) {
       throw new ValidationError({
