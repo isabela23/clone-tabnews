@@ -1,7 +1,5 @@
 import { version as uuidVersion } from "uuid";
 import orchestrator from "tests/orchestrator.js";
-import user from "models/user.js";
-import password from "models/password.js";
 import session from "models/session.js";
 import setCookieParser from "set-cookie-parser";
 
